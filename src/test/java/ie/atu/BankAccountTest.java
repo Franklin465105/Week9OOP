@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-
 public class BankAccountTest {
 
     BankAccount account;
@@ -17,6 +16,7 @@ public class BankAccountTest {
         account = new BankAccount();
     }
 
+    @Test
     void constructorInitialisation()
     {
         account = new BankAccount("ACC12345", "Paul", 100);
@@ -28,8 +28,19 @@ public class BankAccountTest {
     @Test
     void constructorNegativeInitialisation()
     {
-        Exception ex = assertThrows(IllegalArgumentException.class, () -> new BankAccount("ACC12345", "Paul", 100));
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> new BankAccount("ACC12345", "Paul", -100));
         assertEquals("Balance must be greater than 0.", ex.getMessage());
     }
+
+    @Test
+    void depositPositiveAmountIncreaseBalance()
+    {
+        account = new BankAccount("ACC12345", "Paul", 100);
+        double initialBalance = account.getBalance();
+        double DepositAmount = 1234;
+        account.Deposit(DepositAmount);
+        assertEquals(initialBalance + DepositAmount, account.getBalance());
+    }
+
 
 }

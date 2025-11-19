@@ -1,40 +1,40 @@
 package ie.atu.week9;
 
 public class BankAccount {
-    private String accNo;
-    private String name;
-    private double balance;
+    private String AccNo;
+    private String Name;
+    private double Balance;
 
-    public BankAccount(String accNo, String name, double balance)
+    public BankAccount(String AccNo, String Name, double Balance)
     {
-        if(balance < 0)
+        if(Balance <= 0)
         {
             throw new IllegalArgumentException("Balance must be greater than 0.");
         }
-        this.accNo = accNo;
-        this.name = name;
-        this.balance = balance;
+        this.AccNo = AccNo;
+        this.Name = Name;
+        this.Balance = Balance;
     }
 
-    public BankAccount() {
-
+    public void Deposit(double DepositAmount)
+    {
+        Balance += DepositAmount;
     }
+
+    public BankAccount() {}
 
     public String getAccNo() {
-        return accNo;
+        return AccNo;
     }
-    public void setAccNo(String accNo) {}
 
     public String getName() {
-        return name;
+        return Name;
     }
-
-    public void setName(String name) {}
 
     public double getBalance() {
-        return balance;
+        return Balance;
     }
 
-    public void setBalance(double balance) {}
+
 
 }
