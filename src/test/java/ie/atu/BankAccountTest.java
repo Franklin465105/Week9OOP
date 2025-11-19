@@ -37,10 +37,19 @@ public class BankAccountTest {
     {
         account = new BankAccount("ACC12345", "Paul", 100);
         double initialBalance = account.getBalance();
-        double DepositAmount = 1234;
+        double DepositAmount = 100;
         account.Deposit(DepositAmount);
         assertEquals(initialBalance + DepositAmount, account.getBalance());
     }
 
+    @Test
+    void depositNegativeAmountDecreaseBalance()
+    {
+        account = new BankAccount("ACC12345", "Paul", 100);
+        double initialBalance = account.getBalance();
+        double DepositAmount = -50;
+        account.NegDeposit(DepositAmount);
+        assertEquals(initialBalance + DepositAmount, account.getBalance(), "Balance must be greater than 0.");
+    }
 
 }

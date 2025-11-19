@@ -21,6 +21,11 @@ public class BankAccount {
         Balance += DepositAmount;
     }
 
+    public void NegDeposit(double DepositAmount)
+    {
+        Balance += DepositAmount;
+    }
+
     public BankAccount() {}
 
     public String getAccNo() {
